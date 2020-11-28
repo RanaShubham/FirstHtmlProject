@@ -4,6 +4,7 @@
     color: rgb(208, 245, 208);
     text-shadow: black 8px 8px 8px;
     font-style: italic;
+    align-content: center;
 }
 #card{
     font-style: oblique;
@@ -11,7 +12,7 @@
     font-weight: 600;
     display: grid;
     grid-template-columns: 25% 25% 25% 25%;
-    grid-template-rows: 5cm;
+    grid-template-rows: auto;
 }      
 .heading
 {
@@ -50,15 +51,34 @@ body {
     width: 250px;
     border-width: 4px
 }
-button{
+.button1{
     width: 100px;
     height: 35px;
     background-color: rgb(208, 245, 208);
     font-weight: 750;
+    margin-left: 100px;
+    margin-right: 100px;
     /* border-width: 4px; */
     border-color:rgb(212, 216, 214);
+    /* align-items: center; */
+    display: inline-flex; /*Important*/
 }
-button:hover{
+.button1:hover{
+    background-color: rgb(252, 158, 158);
+}
+.button2{
+    width: 100px;
+    height: 35px;
+    background-color: rgb(208, 245, 208);
+    font-weight: 750;
+    margin-left: 100px;
+    margin-right: 100px;
+    /* border-width: 4px; */
+    border-color:rgb(212, 216, 214);
+    text-align: center;
+    display: inline-flex; /*Important*/
+}
+.button2:hover{
     background-color: rgb(252, 158, 158);
 }
 footer{

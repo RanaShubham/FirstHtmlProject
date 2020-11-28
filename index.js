@@ -1,9 +1,10 @@
-document.querySelector("button").addEventListener("click", handleSubmitClick);
+document.querySelector(".button1").addEventListener("click", handleSubmitClick);
+document.querySelector(".button2").addEventListener("click", handleRandomCards);
 
 function handleSubmitClick()
 {
-    name = document.querySelector(".inputName").value;
-    message = document.querySelector(".inputMessage").value;
+    var name = document.querySelector(".inputName").value;
+    var message = document.querySelector(".inputMessage").value;
 
     if (!name || !message)
     {
@@ -13,24 +14,37 @@ function handleSubmitClick()
     var cardObject = document.getElementById("card");
     var element = document.createElement("div");
 
-    // element.style.height = "3cm";
-    // element.style.width = "5cm";
-    element.style.display = "flex";
-    element.style.alignItems = "center";
-    element.style.justifyContent = "center";
-    element.style.border = "solid";
-    element.style.borderStyle = "groove";
-    element.style.borderColor = "gold";
-    element.style.borderWidth = "4px";
-    // element.style.textAlign = "center";
-    // element.style.verticalAlign = "center"
-    element.style.margin = "20px";
-    element.style.overflow = "hidden";
-    element.style.backgroundColor = "#66ffff";
-    element.innerHTML = `Welcome ${name} <br><br> ${message}`;
-
+    styleCard(name, message, element);
     cardObject.appendChild(element);
 
     document.querySelector(".inputName").value = null;
     document.querySelector(".inputMessage").value = null;
+}
+
+function handleRandomCards()
+{
+    var myCardList = []
+    for (let index = 1; index < 10000; index++) {
+        var item = styleCard("Name"+index, "Message"+index, document.createElement("div"));
+        myCardList.push(item)
+    }
+
+    myCardList.forEach(item => {
+        document.getElementById("card").append(item);
+    });
+}
+
+
+function styleCard(name, message, element)
+{
+    element.style.border = "solid";
+    element.style.borderStyle = "groove";
+    element.style.borderColor = "gold";
+    element.style.borderWidth = "4px";
+    element.style.margin = "20px";
+    element.style.overflow = "hidden";
+    element.style.textAlign = "center";
+    element.style.backgroundColor = "#66ffff";
+    element.innerHTML = `Welcome ${name} <br><br> ${message}`;
+    return element;
 }
